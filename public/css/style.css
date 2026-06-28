@@ -1,0 +1,318 @@
+/* =================================
+   MECANOLINK - DASHBOARD CSS
+================================= */
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    color:#1f2937;
+}
+
+/* =================================
+   ESTRUCTURA PRINCIPAL
+================================= */
+
+.system{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =================================
+   SIDEBAR
+================================= */
+
+.sidebar{
+    width:270px;
+    background: linear-gradient(180deg, #111827, #1e3a8a);
+    padding:25px;
+    color:white;
+    position:fixed;
+    height:100vh;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:800;
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 16px;
+    margin-bottom:12px;
+    color:#e5e7eb;
+    text-decoration:none;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#2563eb;
+    transform:translateX(6px);
+}
+
+.sidebar .active{
+    background:#2563eb;
+    color:white;
+}
+
+/* LOGOUT */
+
+.logout{
+    width:100%;
+    margin-top:30px;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#dc2626;
+    color:white;
+    cursor:pointer;
+}
+
+.logout:hover{
+    background:#b91c1c;
+}
+
+/* =================================
+   CONTENIDO
+================================= */
+
+main{
+    margin-left:270px;
+    width:calc(100% - 270px);
+    padding:35px;
+}
+
+h1{
+    margin-bottom:25px;
+    color:#111827;
+}
+
+h2{
+    color:#111827;
+}
+
+/* =================================
+   SECCIONES DINÁMICAS
+================================= */
+
+.contenido{
+    display:none;
+    width:100%;
+    animation:mostrar .3s ease;
+}
+
+.contenido.activo{
+    display:flex;
+    flex-direction:column;
+}
+
+@keyframes mostrar{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =================================
+   TARJETAS
+================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    font-size:40px;
+    color:#2563eb;
+}
+
+.card p{
+    color:#6b7280;
+    margin-top:10px;
+}
+
+/* =================================
+   PANELES
+================================= */
+
+.panel{
+    background:white;
+    margin-top:35px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.panel h2{
+    margin-bottom:25px;
+}
+
+/* =================================
+   FORMULARIOS (CORREGIDO)
+================================= */
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:15px;
+}
+
+label{
+    margin-bottom:6px;
+    font-weight:600;
+    color:#111827;
+}
+
+input{
+    padding:12px;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    outline:none;
+    transition:.3s;
+    font-size:14px;
+}
+
+input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.2);
+}
+
+/* =================================
+   TABLAS
+================================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    border-radius:12px;
+    overflow:hidden;
+    background:white;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:16px;
+    text-align:center;
+}
+
+td{
+    padding:16px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+    vertical-align:middle;
+}
+
+tr:hover{
+    background:#f8fafc;
+}
+
+/* =================================
+   BOTONES
+================================= */
+
+button{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:600;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+/* =================================
+   ESTADOS
+================================= */
+
+span{
+    background:#f59e0b;
+    color:white;
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.done{
+    background:#16a34a;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media(max-width:900px){
+
+    .sidebar{
+        width:80px;
+        padding:15px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .sidebar a{
+        font-size:0;
+    }
+
+    main{
+        margin-left:80px;
+        width:calc(100% - 80px);
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .contenido.activo{
+        display:flex;
+    }
+
+    .panel button{
+        margin-top:20px;
+    }
+
+    hr{
+        border:none;
+        height:1px;
+        background:#e5e7eb;
+        margin:30px 0;
+        opacity:0.8;
+    }
+}
